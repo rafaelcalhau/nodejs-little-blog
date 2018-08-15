@@ -1,0 +1,44 @@
+<div id="posts">
+  <div class="ui breadcrumb">
+    <a class="section" href="/admin/manage">Admin</a>
+    <i class="right angle icon divider"></i>
+    <div class="active section">Posts</div>
+  </div>
+  <div class="ui grid">
+    <div class="ten wide column">
+      <h1>Posts</h1>
+    </div>
+    <div class="six wide column right aligned">
+      <a href="/admin/add" class="ui icon labeled teal button">
+        <i class="edit icon"></i>
+        New post
+      </a>
+    </div>
+  </div>
+  <table class="ui black table">
+    <tbody>
+      <% for(var i = 0; i < data.length; i++){ %>
+      <tr>
+        <td class="ten wide column">
+          <strong>#<%= data[i].id %></strong> - <%= data[i].title %>
+          <% if(data.description !== ''){ %>
+            <br><small class="grey"><%= data[i].description %></small>
+          <% } %>
+        </td>
+        <td>
+          <i class="grey outline calendar icon"></i>
+          <%= dateFormat(data[i].created_at, 'dd/mm/yyyy, HH:MM') %>
+        </td>
+        <td class="two wide column right aligned">
+          <a href="/admin/edit-post/<%= data[i].id %>" class="icon basic button">
+            <i class="edit blue icon"></i>
+          </a>
+          <a href="/admin/remove-post" class="icon basic button bt-remove" data-id="<%= data[i].id %>">
+            <i class="trash red icon"></i>
+          </a>
+        </td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>

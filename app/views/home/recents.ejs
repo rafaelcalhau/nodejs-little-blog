@@ -1,0 +1,30 @@
+<% if(typeof posts !== 'undefined'){ %>
+  <% if(posts.length > 0){ %>
+
+    <div class="ui five column grid">
+
+      <% posts.map(function(post){ %>
+        
+        <div class="column">
+          <div class="ui fluid black card">
+            <div class="content">
+              <a class="header" href="/post/<%= post.id %>"><%= post.title %></a>
+              <div class="meta">
+                <% if(post.author !== ""){ %>
+                  <i class="user small icon"></i>
+                  <%= post.author %><br>              
+                <% } %>
+                <i class="grey outline calendar small icon"></i>
+                <%= dateFormat(post.post_date, 'dd/mm/yyyy, HH:MM') %>
+              </div>
+              <!-- <div class="description"></div> -->
+            </div>
+          </div>
+        </div>
+
+      <% }) %>
+
+    </div>
+
+  <% } %>
+<% } %>

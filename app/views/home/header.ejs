@@ -1,0 +1,30 @@
+<div class="ui menu">
+  <div class="header item logo">
+      <a href="/"><img src="images/logo-littleblog.png" alt="Logo"></a>
+  </div>
+  <a class="item" href="/">
+    Home
+  </a>
+  <a class="item" href="/posts">
+    All Posts
+  </a>
+
+  <div class="right menu">
+    <% if(typeof authenticated !== 'undefined' && authenticated === true){ %>
+    <div class="ui dropdown item">
+      <i class="circle user icon"></i>
+      Admin <i class="dropdown icon"></i>
+      <div class="menu">
+        <a class="item" href="/admin/add">Add New Post</a>
+        <a class="item" href="/admin/manage">Manage Posts</a>
+        <a class="item" href="/admin/user-info">User's information</a>
+        <a class="item" href="/admin/logout">Logout</a>
+      </div>
+    </div>
+    <% } else { %>
+    <div class="item">
+      <a href="/admin/login" class="ui black button">Log In</a>
+    </div>
+    <% } %>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="http://localhost:3000/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>NodeJS Workshop: News's Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.standalone.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+
+  <%- include('header', { authenticated: params.authenticated }) %>
+
+  <div id="page-wrapper">
+
+    <div class="page-contents">
+      <% if(typeof view !== 'undefined' && typeof params === 'undefined'){ %>
+      <%- include(view) %>
+      <% } else if(typeof view !== 'undefined' && typeof params !== 'undefined'){ %>
+      <%- include(view, params) %>
+      <% } else { %>
+      <%- include('../404') %>
+      <% } %>
+    </div>
+
+  </div>
+
+  <%- include('footer') %>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+  <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+  <script>
+    $(function(){
+      $('.datepicker').datepicker();
+      $('.ui.dropdown').dropdown();
+
+      $(document)
+        .on('click', '.bt-remove', function(e){
+          e.preventDefault();
+          const id = $(this).data('id');
+          const row = $(this).parent().parent();
+          
+          $.ajax({
+            data: { id },
+            url: $(this).attr('href'),
+            type: 'DELETE',
+            success: function(result){
+              if(result.success)
+              {
+                row.remove();
+                alert("Selected post has been removed!");
+              }
+              else {
+                alert("Sorry, your request has failed!");
+              }
+            },
+            fail: function(){
+              alert("Sorry, your request has failed!");
+            }
+          });
+        });
+    })
+  </script>
+    
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "nodejs_littleblog",
+  "version": "1.0.0",
+  "description": "Small blog application written in NodeJS.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rafael Calhau",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^3.0.0",
+    "body-parser": "^1.18.3",
+    "connect-redis": "^3.3.3",
+    "consign": "^0.1.6",
+    "dateformat": "^3.0.3",
+    "dotenv-safe": "^6.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "express-validator": "^5.3.0",
+    "helmet": "^3.13.0",
+    "jsonwebtoken": "^8.3.0",
+    "mysql": "^2.16.0"
+  }
+}

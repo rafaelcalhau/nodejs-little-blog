@@ -1,0 +1,75 @@
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) DEFAULT '',
+  `description` varchar(255) DEFAULT NULL,
+  `author` varchar(30) DEFAULT NULL,
+  `contents` text,
+  `post_date` date DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Fazendo dump de dados para tabela `posts`
+--
+
+INSERT INTO `posts` (`id`, `title`, `description`, `author`, `contents`, `post_date`, `created_at`) VALUES
+(1, 'Wow! My first post!', 'Great! I\'ve updated my first post.', '', '<blockquote><p><i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra sollicitudin blandit. Mauris nec convallis augue. Phasellus id varius lacus. Aliquam felis nulla, pellentesque eu luctus sed, blandit quis diam. Aliquam sit amet commodo urna. Vestibulum quis sagittis neque. Praesent et nulla at neque auctor efficitur eget ornare quam. Etiam suscipit arcu eu tortor dapibus imperdiet et in nulla. Nunc quis dolor luctus, convallis nisl eu, sodales sem. Suspendisse elit justo, auctor et velit eu, laoreet posuere nisi. Suspendisse aliquam felis nec mi sagittis, in feugiat metus auctor. Curabitur eu lobortis lorem, id accumsan mauris. Nulla laoreet, arcu sit amet egestas posuere, massa felis faucibus mi, nec sodales urna turpis vel tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</i></p></blockquote><p><strong>Suspendisse porta ut elit laoreet fermentum. Nunc gravida erat et felis porta vehicula. Duis tempor arcu nec tellus congue, vitae ultrices justo hendrerit. Ut et augue urna. Nam eget tortor eu dui fermentum dapibus. Fusce et auctor metus. Sed sed est bibendum, elementum leo sed, lobortis lorem. Praesent non nunc eu diam placerat blandit euismod nec est.</strong></p>', '2018-08-12', '2018-08-11 12:53:21'),
+(2, 'My second post', 'Nicely done using NodeJS', 'Rafael Calhau', '<p>Contents about my second post...</p>', '2018-08-12', '2018-08-11 13:33:42'),
+(3, 'My third post!', 'Cool! That\'s my third post in our BLOG developed using NodeJS!', 'Rafael Calhau', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis tincidunt magna. Donec id elit ultrices, efficitur diam at, aliquam sem. Aliquam varius tellus a turpis venenatis, vitae placerat augue ultrices. Etiam faucibus, erat eu molestie lacinia, quam tellus sagittis nisi, quis tincidunt turpis nibh et purus. Donec laoreet arcu in turpis ultrices, vitae dictum elit sagittis. Sed maximus risus id efficitur vestibulum. Vivamus semper magna nec ante vehicula, in sagittis orci dignissim. Cras malesuada tempor auctor. Sed interdum eleifend dolor sit amet lobortis. Ut at vehicula tellus. Praesent accumsan est semper, lacinia nisl sit amet, auctor diam. Nunc luctus odio id dictum tempus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent cursus metus in sagittis hendrerit. Pellentesque pretium fermentum arcu, non gravida tellus tincidunt a. Etiam sapien erat, malesuada vitae nibh vitae, rutrum egestas velit.</p><p>Donec dignissim leo nec finibus porttitor. Pellentesque sit amet cursus ipsum. Cras vel lacinia quam. In lobortis in neque quis semper. Etiam felis lacus, placerat eu molestie eu, cursus in est. Mauris id dictum magna, in varius nisl. Ut auctor, lorem nec viverra feugiat, felis nulla volutpat ante, vel ultrices leo lorem et ligula. In in libero at quam eleifend maximus. Nam sit amet velit consectetur, imperdiet massa ut, mattis ex. Mauris vitae finibus leo, id pretium neque. Sed dictum eu ipsum id pretium. Donec at orci fringilla, tempus ex at, suscipit nisl. Pellentesque non ex posuere, fermentum elit non, molestie quam.</p><blockquote><p>Mauris placerat mi et enim ultrices, sit amet convallis nisi faucibus. Ut aliquet nunc at ex dapibus, a ultricies odio interdum. Duis a dolor et mi aliquet consequat. Nulla tincidunt metus libero, vel luctus felis placerat in. Fusce imperdiet, ligula mattis tincidunt dignissim, erat libero condimentum nibh, non condimentum tellus eros in ipsum. Curabitur tincidunt accumsan urna sit amet sagittis. Phasellus vehicula, erat at condimentum dictum, nibh nisi rutrum dolor, eget fringilla lectus ante vitae mi. Integer a bibendum tellus. Cras vitae tellus turpis.</p></blockquote><p>Sed dapibus arcu a mauris sodales fringilla. Sed imperdiet nulla vel odio vulputate, vitae pellentesque quam congue. Donec id malesuada elit. Pellentesque feugiat mattis euismod. In id facilisis dolor. Praesent elit justo, euismod nec lectus id, feugiat bibendum arcu. Vestibulum faucibus, nisi in fermentum sagittis, nunc felis vestibulum lectus, sit amet fringilla dolor dolor eu odio. Nullam sit amet convallis augue, eget porttitor nisi. Pellentesque tincidunt neque a tortor ultricies euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce blandit velit in eros tempus, vel accumsan mi tincidunt. Sed porttitor arcu sit amet pellentesque sodales.</p>', '2018-08-11', '2018-08-11 20:39:24'),
+(4, 'My fourth post', 'Test', 'Rafael', '<p>Ok! Validator is working!</p>', '2018-08-12', '2018-08-12 11:25:46'),
+(5, 'My fifty post', 'Nicely done!', 'Rafael', '<p>Oh yeah! <strong>Edited!</strong></p>', '2018-08-11', '2018-08-12 12:01:11'),
+(6, 'Testing again, sixty post', 'Great!', 'Rafael', '<p>Ok, one more test!</p>', '2018-08-11', '2018-08-12 23:32:55');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `category` enum('admin','publisher') NOT NULL DEFAULT 'admin',
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Fazendo dump de dados para tabela `users`
+--
+
+INSERT INTO `users` (`id`, `category`, `name`, `email`, `username`, `password`, `created_at`) VALUES
+(1, 'admin', 'Admin', 'rafael@calhau.me', 'admin', '$2b$10$whDCCTDi17pIHzIWoM0FDO6aqEVdquKM6gGkIiDfazliLmA3DL5Ce', '2018-08-13 15:33:46');
+
+--
+-- Índices de tabelas apagadas
+--
+
+--
+-- Índices de tabela `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de tabelas apagadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT de tabela `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;

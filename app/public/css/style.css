@@ -1,0 +1,74 @@
+.ck-content{
+  min-height: 250px
+}
+.ck-editor {
+  min-width: 100%;
+}
+
+footer{
+  background-color: black;
+  color: white;
+  display: block;
+  padding: 18px 15px 17px;
+  text-align: center;
+}
+
+.grey{
+  color: #666
+}
+
+.header.logo img {
+  height: 48px;
+  width: auto !important
+}
+
+#loginBox{
+  margin-top: 50px;
+  width: 300px
+}
+
+#page-wrapper{
+  display: block;
+  min-height: calc(100% - 148px);
+}
+#page-wrapper .page-contents{
+  padding: 25px 50px
+}
+
+.post-author{
+  margin-top: 20px;
+  font-size: .9em
+}
+.post-body{
+  line-height: 18px;
+  margin-bottom: 40px
+}
+.post-header{
+  margin-bottom: 40px
+}
+.post-list td a{
+  font-size: 1.3em;
+  color: #222
+}
+.post-list td a:hover{
+  text-decoration: underline
+}
+.post-header .title{
+  margin-bottom: 5px !important;
+}
+.post-header .subtitle{
+  padding: 0 !important;
+  margin: 0 0 15px 0 !important;
+  font-weight: 300
+}
+
+.simple-list{
+  padding-left: 10px 
+}
+.simple-list li{
+  text-align: left
+}
+
+.ui.breadcrumb{
+  margin-bottom: 25px
+}

@@ -1,0 +1,38 @@
+<div id="posts">
+  <div class="ui breadcrumb">
+    <a class="section" href="/">Home</a>
+    <i class="right angle icon divider"></i>
+    <div class="active section">Posts</div>
+  </div>
+  <div class="ui grid">
+    <div class="sixteen wide column">
+      <h1>Posts's List</h1>
+    </div>
+  </div>
+  <table class="ui black table">
+    <thead>
+      <tr>
+        <th class="twelve wide column">Posts</th>
+        <th>Added in</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(var i = 0; i < data.length; i++){ %>
+      <tr class="post-list">
+        <td>
+          <a href="/post/<%= data[i].id %>">
+            <%= data[i].title %>
+          </a>
+          <% if(data[i].description !== ''){ %>
+            <br><small class="grey"><%= data[i].description %></small>
+          <% } %>
+        </td>
+        <td>
+          <i class="grey outline calendar icon"></i>
+          <%= dateFormat(data[i].created_at, 'dd/mm/yyyy, HH:MM') %>
+        </td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>

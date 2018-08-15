@@ -1,0 +1,107 @@
+<div id="posts">
+  <h1>
+    <i class="edit icon"></i>
+    Posts
+  </h1>
+  <h3>Add a new Post</h3>
+
+  <div class="ui divider"></div>
+
+  <% if(typeof errors !== 'undefined'){ %>
+  <div class="ui warning message">
+    <i class="close icon"></i>
+    <div class="header">
+      Something is wrong!
+    </div>
+    <ul>
+      <% errors.map(function(error){ %>
+      <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+  </div>
+  <% } %>
+
+  <form id="frmPost" name="frmPost" action="/admin/save-post" method="POST" class="ui big form">
+    <div class="ui grid">
+      <div class="sixteen wide column">
+        <label for="title">
+          Title:
+        </label>
+        <div class="ui fluid input">
+            <input id="title" name="title" type="text" max="255" 
+              value="<%= typeof data !== 'undefined' ? data.title : '' %>">
+        </div>
+      </div>
+      <div class="sixteen wide column">
+        <label for="description">
+          Description:
+        </label>
+        <div class="ui fluid input">
+            <input id="description" name="description" type="text" max="255"
+              value="<%= typeof data !== 'undefined' ? data.description : '' %>">
+        </div>
+      </div>
+      
+      <div class="eight wide column">
+        <label for="author">
+          Author:
+        </label>
+        <div class="ui fluid input">
+          <input id="author" name="author" type="text" max="255"
+            value="<%= typeof data !== 'undefined' ? data.author : '' %>">
+        </div>
+      </div>
+      <div class="eight wide column">
+        <label for="post_date">
+          Publication's Date:
+        </label>
+        <div class="ui fluid input">
+            <input id="post_date" name="post_date" type="text" max="10"
+              value="<%= typeof data !== 'undefined' ? data.post_date : '' %>" class="datepicker">
+        </div>
+      </div>
+
+      <div class="sixteen wide column">
+        <label for="contents">
+          Contents:
+        </label>
+        <div class="ui fluid input">
+            <textarea id="contents" name="contents"><%= typeof data !== 'undefined' ? data.contents : '' %></textarea>
+        </div>
+      </div>
+
+      <div class="sixteen wide column right aligned">
+        <button class="ui icon black labeled button">
+          <i class="icon save"></i> Save
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('#post_date').datepicker();
+
+    ClassicEditor
+      .create(document.querySelector( '#contents' ))
+      .then(editor => {
+        CKEditor = editor;
+      })
+      .catch(error => {
+        console.error( error );
+      });
+
+    $('#frmPost').submit(function(){
+
+      if($('#title').val() === ""){
+        $('#title').focus();
+        return false;
+      }
+      else if($(CKEditor.getData()).text().trim() === ""){
+        return false;
+      }
+
+    });
+  });
+</script>

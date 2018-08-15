@@ -1,0 +1,38 @@
+<div id="loginBox" class="ui raised very padded text container">
+  <div class="ui middle aligned center aligned grid">
+    <div class="column">
+      <h3 class="ui header">
+        <div class="content">
+          Administration
+        </div>
+      </h3>
+      <% if(typeof errors !== 'undefined'){ %>
+      <div class="ui error message">
+        <ul class="simple-list">
+        <% errors.map(msg => { %>
+          <li><%= msg %></li>
+        <% }); %>
+        </ul>
+      </div>
+      <% } %>
+      <form class="ui large form" name="frmLogin" id="frmLogin" action="/admin/login" method="POST">
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input name="username" placeholder="Username" type="text" autofocus="yes" required>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <input name="password" placeholder="Password" type="password" required>
+          </div>
+        </div>
+        <input type="hidden" name="_url" value="<%= typeof url !== 'undefined' ? url : "" %>">
+        <button class="ui fluid large orange submit button">
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div id="posts">
+  <div class="ui breadcrumb">
+    <a class="section" href="/">Home</a>
+    <i class="right angle icon divider"></i>
+    <a class="section" href="/posts">Posts</a>
+    <i class="right angle icon divider"></i>
+    <div class="active section"><%= post[0].title %></div>
+  </div>
+  
+  <div class="post-header">
+    <h2 class="ui header title"><%= post[0].title %></h2>
+    <% if(post[0].description !== ""){ %>
+    <h5 class="subtitle"><%= post[0].description %></h5>
+    <% } %>
+    <span class="grey post-author">By <%= post[0].author %></span>
+  </div>
+  
+  <div class="post-body">
+    <%- post[0].contents %>
+  </div>
+</div>
