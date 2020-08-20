@@ -9,7 +9,7 @@
   "author": "Rafael Calhau",
   "license": "MIT",
   "dependencies": {
-    "bcrypt": "^3.0.0",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.18.3",
     "connect-redis": "^3.3.3",
     "consign": "^0.1.6",
